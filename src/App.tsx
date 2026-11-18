@@ -207,19 +207,21 @@ function Hero() {
     <header id="top" className="relative pt-16">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="flex items-center border-b border-line py-4">
-          <span className="label">Portfolio · 2026</span>
+          <span className="label">Portfolio</span>
         </div>
 
         <div className="grid gap-10 pb-14 pt-10 md:grid-cols-12 md:gap-8 md:pt-14 lg:pb-16">
           <div className="flex flex-col md:col-span-7">
+            <div className="flex md:flex-1 md:items-center md:py-6">
             <h1 className="display text-[clamp(3.6rem,15vw,10.75rem)] font-semibold md:text-[11.4vw] lg:text-[clamp(3.6rem,10.6vw,10.75rem)]">
               <motion.span className="block" {...line(0.05)}>{profile.first}</motion.span>
               <motion.span className="block whitespace-nowrap pl-[0.5em]" {...line(0.15)}>
                 {profile.last}<span className="text-accent">.</span>
               </motion.span>
             </h1>
+            </div>
 
-            <motion.div {...line(0.3)} className="mt-10 grid gap-8 md:mt-auto md:pt-12">
+            <motion.div {...line(0.3)} className="mt-10 grid gap-8 md:mt-0">
               <p className="max-w-[34rem] text-lg leading-relaxed md:text-xl">
                 I enjoy problem solving, especially on the backend: APIs, data pipelines and the logic people rely on
                 without seeing. I also like working on security and finding where web applications break.
