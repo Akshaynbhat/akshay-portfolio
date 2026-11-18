@@ -210,7 +210,7 @@ function Hero() {
           <span className="label">Portfolio</span>
         </div>
 
-        <div className="grid gap-10 pb-14 pt-10 md:grid-cols-12 md:gap-8 md:pt-14 lg:pb-16">
+        <div className="grid gap-10 pb-14 pt-6 md:grid-cols-12 md:gap-8 md:pt-6 lg:pb-16">
           <div className="flex flex-col md:col-span-7">
             <div className="flex md:flex-1 md:items-center md:py-6">
             <h1 className="display text-[clamp(3.6rem,15vw,10.75rem)] font-semibold md:text-[11.4vw] lg:text-[clamp(3.6rem,10.6vw,10.75rem)]">
