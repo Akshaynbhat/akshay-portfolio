@@ -15,7 +15,7 @@ const PREVIEW = import.meta.env.VITE_PREVIEW === '1'
 
 const ResumeCtx = createContext<() => void>(() => {})
 
-// Every résumé button opens the in-page viewer, which also offers the PDF download.
+// Every resume button opens the in-page viewer, which also offers the PDF download.
 function ResumeLink({ className, children }: { className?: string; children: ReactNode }) {
   const open = useContext(ResumeCtx)
   return <button type="button" onClick={open} className={className}>{children}</button>
@@ -32,20 +32,20 @@ function ResumeViewer({ open, onClose }: { open: boolean; onClose: () => void })
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose}
         >
           <motion.div
-            role="dialog" aria-modal="true" aria-label="Résumé"
+            role="dialog" aria-modal="true" aria-label="Resume"
             className="my-auto h-fit w-full max-w-3xl border border-line bg-paper"
             initial={{ y: 24, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 24, opacity: 0 }} transition={{ duration: 0.4, ease }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="sticky top-0 flex flex-wrap items-center justify-between gap-3 border-b border-line bg-paper px-5 py-3">
-              <span className="label">Résumé — {profile.name}</span>
+              <span className="label">Resume — {profile.name}</span>
               <div className="flex items-center gap-5">
                 {!PREVIEW && <a href={profile.resume} download className="bg-accent px-3.5 py-1.5 text-sm text-accent-ink hover:opacity-85">Download PDF ↓</a>}
                 <button onClick={onClose} className="label !text-ink hover:!text-accent" autoFocus>Close ✕</button>
               </div>
             </div>
             <div className="bg-panel p-3 md:p-6">
-              <img src="./projects/resume-preview.jpg" alt={`Résumé of ${profile.name}`} className="w-full bg-white shadow-[0_20px_50px_-20px_rgb(0_0_0/0.35)]" />
+              <img src="./projects/resume-preview.jpg" alt={`Resume of ${profile.name}`} className="w-full bg-white shadow-[0_20px_50px_-20px_rgb(0_0_0/0.35)]" />
             </div>
           </motion.div>
         </motion.div>
@@ -114,7 +114,7 @@ function Ext({ href, children, className = '' }: { href: string; children: React
 function Section({ id, no, title, children, aside }: { id: string; no: string; title: string; children: ReactNode; aside?: ReactNode }) {
   return (
     <section id={id} className="border-t border-line">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-5 py-20 md:px-10 md:py-28 lg:grid-cols-12">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-5 py-16 md:px-10 md:py-20 lg:grid-cols-12">
         <div className="lg:col-span-3">
           <div className="lg:sticky lg:top-28">
             <p className="label"><span className="text-accent">{no}</span> — {title}</p>
@@ -166,7 +166,7 @@ function Nav({ theme, toggle }: { theme: string; toggle: () => void }) {
               {theme === 'light' ? '◐ Dark' : '◑ Light'}
             </button>
             <ResumeLink className="hidden border border-ink px-3.5 py-1.5 text-sm transition-colors hover:bg-ink hover:text-paper sm:inline-block">
-              Résumé
+              Resume
             </ResumeLink>
             <button className="label !text-ink md:hidden" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-controls="mobile-menu">
               {open ? 'Close' : 'Menu'}
@@ -191,7 +191,7 @@ function Nav({ theme, toggle }: { theme: string; toggle: () => void }) {
                 </motion.li>
               ))}
             </ul>
-            <ResumeLink className="mt-8 inline-block border border-ink px-4 py-2">View résumé</ResumeLink>
+            <ResumeLink className="mt-8 inline-block border border-ink px-4 py-2">View resume</ResumeLink>
           </motion.div>
         )}
       </AnimatePresence>
@@ -206,52 +206,68 @@ function Hero() {
   return (
     <header id="top" className="relative pt-16">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-        <div className="flex items-center justify-between border-b border-line py-4">
+        <div className="flex items-center border-b border-line py-4">
           <span className="label">Portfolio · 2026</span>
-          <span className="label">ISE · {profile.collegeShort}</span>
         </div>
 
-        <div className="grid gap-10 pb-20 pt-10 md:pt-14 lg:grid-cols-12 lg:gap-8 lg:pb-28">
-          <div className="flex flex-col lg:col-span-7">
-            <h1 className="display text-[clamp(3.6rem,15vw,10.75rem)] font-semibold lg:text-[clamp(3.6rem,10.6vw,10.75rem)]">
+        <div className="grid gap-10 pb-14 pt-10 md:grid-cols-12 md:gap-8 md:pt-14 lg:pb-16">
+          <div className="flex flex-col md:col-span-7">
+            <h1 className="display text-[clamp(3.6rem,15vw,10.75rem)] font-semibold md:text-[11.4vw] lg:text-[clamp(3.6rem,10.6vw,10.75rem)]">
               <motion.span className="block" {...line(0.05)}>{profile.first}</motion.span>
               <motion.span className="block whitespace-nowrap pl-[0.5em]" {...line(0.15)}>
                 {profile.last}<span className="text-accent">.</span>
               </motion.span>
             </h1>
 
-            <motion.div {...line(0.3)} className="mt-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end lg:mt-auto lg:pt-16">
+            <motion.div {...line(0.3)} className="mt-10 grid gap-8 md:mt-auto md:pt-12">
               <p className="max-w-[34rem] text-lg leading-relaxed md:text-xl">
                 I enjoy problem solving, especially on the backend: APIs, data pipelines and the logic people rely on
                 without seeing. I also like working on security and finding where web applications break.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a href="#work" className="bg-accent px-5 py-3 text-sm font-medium text-accent-ink transition-opacity hover:opacity-85">See the work ↓</a>
-                <ResumeLink className="border border-ink px-5 py-3 text-sm transition-colors hover:bg-ink hover:text-paper">Résumé</ResumeLink>
+                <ResumeLink className="border border-ink px-5 py-3 text-sm transition-colors hover:bg-ink hover:text-paper">Resume</ResumeLink>
               </div>
+              <ul className="flex flex-wrap gap-x-6 gap-y-2 border-t border-line pt-5" aria-label="Highlights">
+                {[
+                  ['3rd place', 'DSCE Hackathon 2026'],
+                  ['Grand Finalist', 'INNO Manthan 2026'],
+                  ['2 internships', 'in cybersecurity'],
+                ].map(([k, v]) => (
+                  <li key={k} className="flex items-baseline gap-2 text-sm">
+                    <span className="h-1.5 w-1.5 shrink-0 -translate-y-px rounded-full bg-accent" aria-hidden="true" />
+                    <span className="font-medium">{k}</span>
+                    <span className="text-muted">{v}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           </div>
 
           <motion.figure
-            className="lg:col-span-5"
+            className="md:col-span-5"
             initial={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
             animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
             transition={{ duration: 1.1, ease, delay: 0.1 }}
           >
+            <div className="mb-4 flex items-end justify-between gap-4 border-b border-line pb-4">
+              <span className="label">B.E. ISE · BNMIT</span>
+              <p className="text-right leading-none">
+                <span className="mr-3 font-mono text-sm font-bold uppercase tracking-wider">CGPA</span>
+                <span className="font-display text-4xl font-bold tracking-tight md:text-5xl">{profile.cgpa}</span>
+                <span className="ml-1 font-display text-lg text-muted">/ 10</span>
+              </p>
+            </div>
             <div className="relative">
-              <div className="absolute -left-3 top-8 bottom-8 hidden w-px bg-accent lg:block" aria-hidden="true" />
+              <div className="absolute -left-3 top-8 bottom-8 hidden w-px bg-accent md:block" aria-hidden="true" />
               <img
                 src={photo}
                 alt="Akshay N Bhat, smiling, arms crossed, on a rooftop with the Bengaluru skyline behind him"
                 width={960} height={1280}
-                className="aspect-[4/5] w-full object-cover object-[50%_35%]"
+                className="aspect-[4/5] w-full object-cover object-[50%_35%] lg:aspect-[5/6]"
                 fetchPriority="high"
               />
             </div>
-            <figcaption className="mt-3 flex justify-between">
-              <span className="label">Fig. 1 — Akshay, above Bengaluru</span>
-              <span className="label">BNMIT · ISE</span>
-            </figcaption>
           </motion.figure>
         </div>
       </div>
@@ -748,7 +764,7 @@ function Contact() {
             <div className="flex gap-6 pt-2">
               <Ext href={profile.linkedin} className="link-u">LinkedIn <Arrow /></Ext>
               <Ext href={profile.github} className="link-u">GitHub <Arrow /></Ext>
-              <ResumeLink className="link-u">Résumé</ResumeLink>
+              <ResumeLink className="link-u">Resume</ResumeLink>
             </div>
           </div>
         </Reveal>
