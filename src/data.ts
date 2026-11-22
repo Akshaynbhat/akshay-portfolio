@@ -14,7 +14,7 @@ export const profile = {
   collegeShort: 'BNMIT',
   degree: 'Bachelor of Engineering',
   department: 'Information Science & Engineering',
-  standing: 'Third year · 5th semester',
+  standing: '2024 – 2028 (expected) · 5th semester',
   cgpa: '9.4',
   objective:
     'Passionate 3rd year B.E. student at BNM Institute of Technology with hands-on experience in building AI, blockchain, and full-stack projects. Looking for opportunities in backend development or software engineering where I can contribute and grow.',
@@ -110,7 +110,7 @@ export const projects: Project[] = [
     features: [
       'Dual control: spoken commands or EMG muscle signals',
       'Raw EMG is filtered, then muscle activations are classified into movement commands',
-      'Obstacle detection from sensor feedback',
+      'Ultrasonic obstacle detection that stops the chair within 10 cm',
       'Custom app built for the wheelchair system',
     ],
     stack: ['Embedded systems', 'EMG signal processing', 'Voice control', 'Sensors', 'Mobile app'],
@@ -359,6 +359,7 @@ const springboard = 'https://verify.onwingspan.com'
 
 export const certs: Cert[] = [
   { slug: 'python-for-data-science', title: 'Python for Data Science', issuer: 'Infosys Springboard', date: '2 Nov 2026', iso: '2026-11-02', track: 'AI & Data', verify: springboard, verifyNote: 'Scan the QR code on the certificate' },
+  { slug: 'cisco-packet-tracer', title: 'Exploring Networking with Cisco Packet Tracer', issuer: 'Cisco Networking Academy', date: '2 Nov 2026', iso: '2026-11-02', track: 'Security', credentialId: 'ae691072-e83c-442f-bfa0-7cc84618b9fe' },
   { slug: 'cisco-ethical-hacker', title: 'Ethical Hacker', issuer: 'Cisco Networking Academy', date: '30 Jul 2026', iso: '2026-07-30', track: 'Security', credentialId: 'af70746d-31b6-4d90-8c71-1810fb858df1' },
   { slug: 'aws-cloud-security-foundations', title: 'AWS Academy Graduate — Cloud Security Foundations', issuer: 'AWS Academy', date: '29 Jul 2026', iso: '2026-07-29', track: 'Security', verify: 'https://www.credly.com/go/j7ywqu9U', extra: '20 hours · Training badge' },
   { slug: 'introduction-to-ai', title: 'Introduction to Artificial Intelligence', issuer: 'Infosys Springboard', date: '6 Apr 2026', iso: '2026-04-06', track: 'AI & Data', verify: springboard, verifyNote: 'Scan the QR code on the certificate' },
